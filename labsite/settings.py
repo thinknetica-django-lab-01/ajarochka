@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'django.contrib.admindocs',
     'main',
     'ckeditor',
     'ckeditor_uploader',
@@ -77,9 +78,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'labsite.wsgi.application'
 
-MEDIA_ROOT = [
-    CKEDITOR_UPLOAD_PATH = "uploads/"
-]
+MEDIA_URL = "image_upload/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "image_upload")
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -130,11 +132,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join('labsite', 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join('labsite', 'staticfiles')
-CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
-CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+# CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
