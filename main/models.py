@@ -25,12 +25,12 @@ class Post(models.Model):
     #     return self.post_date.date() == datetime.date.today()
 
 class Vacancies(models.Model):
-    resume_author = models.OneToOneField(Author, on_delete=models.CASCADE, related_name='vacancies')
+    vacancies_author = models.OneToOneField(Author, on_delete=models.CASCADE, related_name='vacancies')
     vacancy_title = models.CharField(max_length=128)
     vacancy_id = models.ForeignKey(Post, on_delete=models.CASCADE)
 
 class Resumes(models.Model):
-    resume_author = models.OneToOneField(Author, on_delete=models.CASCADE, related_name='vacancies')
+    resume_author = models.OneToOneField(Author, on_delete=models.CASCADE, related_name='resumes')
     resume_text = models.CharField(max_length=128)
     resume_id = models.ForeignKey(Post, on_delete=models.CASCADE)
 
